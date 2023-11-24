@@ -188,13 +188,11 @@ var config = {
 	* style: function see https://openlayers.org/en/latest/apidoc/module-ol_style_Style-Style.html
 	*/
 	overlays: [
-
-
 		{
-			group: 'Reciclatge/Reciclaje/Recycling',
-			title: 'Paper/Papel',
-			query: 'node["recycling:paper"="yes"][!access]({{bbox}});out meta;',
-			iconSrc: imgSrc + 'icones_contenidors/paper.svg',
+			group: 'Highways without ref',
+			title: 'Motorway',
+			query: 'way["highway"="motorway"]["ref"!~".*"]({{bbox}});out meta;',
+			iconSrc: imgSrc + 'iconos_highway/highway.png',
 			iconStyle: 'background-color:#FFFFFF',
 			style: function () {
 				var fill = new ol.style.Fill({
@@ -202,7 +200,7 @@ var config = {
 				});
 				var stroke = new ol.style.Stroke({
 					color: '#0000FF',
-					width: 1.25
+					width: 1.5
 				});
 				var style = new ol.style.Style({
 					image: new ol.style.Circle({
@@ -217,17 +215,17 @@ var config = {
 			}
 		},
 		{
-			group: 'Reciclatge/Reciclaje/Recycling',
-			title: 'Vidre/Vidrio/Glass bottles',
-			query: 'node["recycling:glass_bottles"="yes"][!access]({{bbox}});out meta;',
-			iconSrc: imgSrc + 'icones_contenidors/vidre.svg',
+			group: 'Highways without ref',
+			title: 'Trunk',
+			query: 'way["highway"="trunk"]["ref"!~".*"]({{bbox}});out meta;',
+			iconSrc: imgSrc + 'iconos_highway/trunk.png',
 			iconStyle: 'background-color:#FFFFFF',
 			style: function () {
 				var fill = new ol.style.Fill({
-					color: 'rgba(0,255,0,0.4)'
+					color: 'rgba(0,0,255,0.4)'
 				});
 				var stroke = new ol.style.Stroke({
-					color: '#00FF00',
+					color: '#FFA500',
 					width: 1.25
 				});
 				var style = new ol.style.Style({
@@ -243,174 +241,18 @@ var config = {
 			}
 		},
 		{
-			group: 'Reciclatge/Reciclaje/Recycling',
-			title: 'Envasos/Envases/Cans',
-			query: 'node["recycling:cans"="yes"][!access]({{bbox}});out meta;',
-			iconSrc: imgSrc + 'icones_contenidors/envasos.svg',
-			iconStyle: 'background-color:#FFFFFF',
-			style: function () {
-				var fill = new ol.style.Fill({
-					color: 'rgba(255,255,0,0.4)'
-				});
-				var stroke = new ol.style.Stroke({
-					color: '#FFFF00',
-					width: 1.25
-				});
-				var style = new ol.style.Style({
-					image: new ol.style.Circle({
-						fill: fill,
-						stroke: stroke,
-						radius: 5
-					}),
-					fill: fill,
-					stroke: stroke
-				});
-				return style;
-			}
-		},
-		{
-			group: 'Reciclatge/Reciclaje/Recycling',
-			title: 'Orgànic/Orgánico',
-			query: 'node["recycling:organic"="yes"][!access]({{bbox}});out meta;',
-			iconSrc: imgSrc + 'icones_contenidors/organic.svg',
-			iconStyle: 'background-color:#FFFFFF',
-			style: function () {
-				var fill = new ol.style.Fill({
-					color: 'rgba(165,42,42,0.4)'
-				});
-				var stroke = new ol.style.Stroke({
-					color: '#A52A2A',
-					width: 1.25
-				});
-				var style = new ol.style.Style({
-					image: new ol.style.Circle({
-						fill: fill,
-						stroke: stroke,
-						radius: 5
-					}),
-					fill: fill,
-					stroke: stroke
-				});
-				return style;
-			}
-		},
-		{
-			group: 'Reciclatge/Reciclaje/Recycling',
-			title: 'Rebuig/Rechazo/Waste',
-			query: 'node["recycling:waste"="yes"][!access]({{bbox}});out meta;',
-			iconSrc: imgSrc + 'icones_contenidors/rebuig.svg',
-			iconStyle: 'background-color:#FFFFFF',
-			style: function () {
-				var fill = new ol.style.Fill({
-					color: 'rgba(0,0,0,0.4)'
-				});
-				var stroke = new ol.style.Stroke({
-					color: '#000000',
-					width: 1.25
-				});
-				var style = new ol.style.Style({
-					image: new ol.style.Circle({
-						fill: fill,
-						stroke: stroke,
-						radius: 5
-					}),
-					fill: fill,
-					stroke: stroke
-				});
-				return style;
-			}
-		},
-		{
-			group: 'Reciclatge/Reciclaje/Recycling',
-			title: 'Piles/Pilas/Batteries',
-			query: 'node["recycling:batteries"="yes"][!access]({{bbox}});out meta;',
-			iconSrc: imgSrc + 'icones_contenidors/piles.svg',
-			iconStyle: 'background-color:#FFFFFF',
-			style: function () {
-				var fill = new ol.style.Fill({
-					color: 'rgba(255,0,0,0.4)'
-				});
-				var stroke = new ol.style.Stroke({
-					color: '#FF0000',
-					width: 1.25
-				});
-				var style = new ol.style.Style({
-					image: new ol.style.Circle({
-						fill: fill,
-						stroke: stroke,
-						radius: 5
-					}),
-					fill: fill,
-					stroke: stroke
-				});
-				return style;
-			}
-		},
-		{
-			group: 'Reciclatge/Reciclaje/Recycling',
-			title: 'Oli/Aceite/Cooking oil',
-			query: 'node["recycling:cooking_oil"="yes"][!access]({{bbox}});out meta;',
-			iconSrc: imgSrc + 'icones_contenidors/oli.svg',
-			iconStyle: 'background-color:#FFFFFF',
-			style: function () {
-				var fill = new ol.style.Fill({
-					color: 'rgba(106,90,205,0.4)'
-				});
-				var stroke = new ol.style.Stroke({
-					color: '#6A5ACD',
-					width: 1.25
-				});
-				var style = new ol.style.Style({
-					image: new ol.style.Circle({
-						fill: fill,
-						stroke: stroke,
-						radius: 5
-					}),
-					fill: fill,
-					stroke: stroke
-				});
-				return style;
-			}
-		},
-		{
-			group: 'Reciclatge/Reciclaje/Recycling',
-			title: 'Roba/Ropa/Clothes',
-			query: 'node["recycling:clothes"="yes"][!access]({{bbox}});out meta;',
-			iconSrc: imgSrc + 'icones_contenidors/roba.svg',
-			iconStyle: 'background-color:#FFFFFF',
-			style: function () {
-				var fill = new ol.style.Fill({
-					color: 'rgba(106,90,205,0.4)'
-				});
-				var stroke = new ol.style.Stroke({
-					color: '#6A5ACD',
-					width: 1.25
-				});
-				var style = new ol.style.Style({
-					image: new ol.style.Circle({
-						fill: fill,
-						stroke: stroke,
-						radius: 5
-					}),
-					fill: fill,
-					stroke: stroke
-				});
-				return style;
-			}
-		},
-		{
-			group: 'Reciclatge/Reciclaje/Recycling',
-			title: 'Privats/Privado/Private',
-			query: 'node[recycling_type=container][access=private]({{bbox}});out meta;',
-			iconSrc: imgSrc + 'icones_contenidors/general.svg',
+			group: 'Highways without ref',
+			title: 'Tertiary',
+			query: 'way["highway"="tertiary"]["ref"!~".*"]({{bbox}});out meta;',
+			iconSrc: imgSrc + 'iconos_highway/road.png',
 			iconStyle: 'background-color:#FFFFFF',
 			style: function () {
 				var fill = new ol.style.Fill({
 					color: 'rgba(128,128,128,0.4)'
 				});
 				var stroke = new ol.style.Stroke({
-					color: '#808080',
-					width: 1.25
+					color: '#FFFF00',
+					width: 0.75
 				});
 				var style = new ol.style.Style({
 					image: new ol.style.Circle({
